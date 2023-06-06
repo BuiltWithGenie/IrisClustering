@@ -1,0 +1,37 @@
+<header class="st-header q-pa-sm">
+    <h1 class="st-header__title text-h3">My Iris Dashboard</h1>
+</header>
+<div class="row">
+    <div class="st-col col-12 col-sm st-module">
+        <p><b>Number of clusters</b></p>
+        <q-slider v-model="no_of_clusters" :label="isready"></q-slider>
+    </div>
+    <div class="st-col col-12 col-sm st-module">
+        <p><b>Number of iterations</b></p>
+        <q-slider v-model="no_of_iterations" :label="isready"></q-slider>
+    </div>
+    <div class="st-col col-12 col-sm st-module">
+        <p><b>X feature</b></p>
+        <q-select :model-value="features" v-model="xfeature" :options="features"></q-select>
+    </div>
+    <div class="st-col col-12 col-sm st-module">
+        <p><b>Y feature</b></p>
+        <q-select :model-value="features" :options="features" v-model="yfeature"></q-select>
+    </div>
+</div>
+<div class="row">
+    <div class="st-col col-12 col-sm st-module">
+        <p><b>Species clusters</b></p>
+        <plotly :data="irisplot"></plotly>
+    </div>
+    <div class="st-col col-12 col-sm st-module">
+        <p><b>k-means clusters</b></p>
+        <plotly :data="clusterplot"></plotly>
+    </div>
+</div>
+<div class="row">
+    <div class="st-col col-12 col-sm">
+        <p><b>Iris data</b></p>
+        <q-table flat :pagination.sync="datatablepagination" :columns="datatable.columns_datatable" v-model="datatable" row_key="groupindices" :data="datatable.data_datatable" dense row-key="__id" style="height: 350px;" :selected="sel"></q-table>
+    </div>
+</div>
