@@ -2,7 +2,7 @@
 
 julia_version = "1.9.0"
 manifest_format = "2.0"
-project_hash = "a9f81b3d28627a99a8f7ceebeaa8f1c6d502b857"
+project_hash = "6aee0cc178fc2f4aa7aa321823ee1ac28afdeebc"
 
 [[deps.ArgParse]]
 deps = ["Logging", "TextWrap"]
@@ -231,7 +231,7 @@ version = "0.5.1"
 
 [[deps.Genie]]
 deps = ["ArgParse", "Dates", "Distributed", "DotEnv", "EzXML", "FilePathsBase", "HTTP", "HttpCommon", "Inflector", "JSON3", "JuliaFormatter", "Logging", "LoggingExtras", "Markdown", "Millboard", "Nettle", "OrderedCollections", "Pkg", "REPL", "Random", "Reexport", "Revise", "SHA", "Serialization", "Sockets", "UUIDs", "Unicode", "YAML"]
-path = "/Users/adrian/.julia/dev/Genie"
+git-tree-sha1 = "365f3f8f2a0c69952ed4f4c3216fb7c5b96773ca"
 uuid = "c43c736e-a2d1-11e8-161f-af95117fbd1e"
 version = "5.18.0"
 
