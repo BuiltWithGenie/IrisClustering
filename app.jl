@@ -1,4 +1,4 @@
-using Clustering
+using Clustering, PlotlyBase
 import RDatasets: dataset
 import DataFrames
 
@@ -22,14 +22,32 @@ end
     @in yfeature = :SepalWidth
     @out datatable = DataTable()
     @out datatablepagination = DataTablePagination(rows_per_page=50)
-    @out irisplot = PlotData[]
-    @out clusterplot = PlotData[]
+    @out traces_iris = [scatter()]
+    @out traces_cluster = [scatter()]
+    @out layout = PlotlyBase.Layout()
 
     @onchange isready, xfeature, yfeature, no_of_clusters, no_of_iterations begin
         cluster(no_of_clusters, no_of_iterations)
+        # plot species samples
+        traces= []
+        for c in unique(data.Species)
+            iris_data = data[data.Species.==c, :]
+            push!(traces, scatter(x=iris_data[!, xfeature], y=iris_data[!, yfeature], mode="markers", name="Species $c"))
+        end
+        traces_iris = traces # trigger traces_iris update
+        # plot k-means result
+        traces= []
+        for c in unique(data.Cluster)
+            cluster_data = data[data.Cluster.==c, :]
+            push!(traces, scatter(x=cluster_data[!, xfeature], y=cluster_data[!, yfeature], mode="markers", name="Cluster $c"))
+        end
+        traces_cluster = traces # trigger traces_cluster update
+        # layout with axis labels
+        layout = PlotlyBase.Layout(
+            xaxis=attr(title=String(xfeature)),
+            yaxis=attr(title=String(yfeature),)
+        )
         datatable = DataTable(data)
-        irisplot = plotdata(data, xfeature, yfeature; groupfeature=:Species)
-        clusterplot = plotdata(data, xfeature, yfeature; groupfeature=:Cluster)
     end
 end
 
