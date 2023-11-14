@@ -6,7 +6,7 @@ using GenieFramework
 @genietools
 
 const data = DataFrames.insertcols!(dataset("datasets", "iris"), :Cluster => zeros(Int, 150))
-features = [:SepalLength, :SepalWidth, :PetalLength, :PetalWidth]
+const features = [:SepalLength, :SepalWidth, :PetalLength, :PetalWidth]
 
 function cluster(no_of_clusters=3, no_of_iterations=10)
     feats = Matrix(data[:, [c for c in features]])' |> collect
