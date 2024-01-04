@@ -28,20 +28,9 @@ end
 
     @onchange isready, xfeature, yfeature, no_of_clusters, no_of_iterations begin
         cluster(no_of_clusters, no_of_iterations)
-        # plot species samples
-        traces= []
-        for c in unique(data.Species)
-            iris_data = data[data.Species.==c, :]
-            push!(traces, scatter(x=iris_data[!, xfeature], y=iris_data[!, yfeature], mode="markers", name="Species $c"))
-        end
-        traces_iris = traces # trigger traces_iris update
-        # plot k-means result
-        traces= []
-        for c in unique(data.Cluster)
-            cluster_data = data[data.Cluster.==c, :]
-            push!(traces, scatter(x=cluster_data[!, xfeature], y=cluster_data[!, yfeature], mode="markers", name="Cluster $c"))
-        end
-        traces_cluster = traces # trigger traces_cluster update
+        # when used with the group argument, scatter returns an array of traces
+        traces_iris = scatter(data, group=:Species, x=xfeature, y=yfeature, mode="markers")
+        traces_cluster = scatter(data, group=:Cluster, x=xfeature, y=yfeature, mode="markers")
         # layout with axis labels
         layout = PlotlyBase.Layout(
             xaxis=attr(title=String(xfeature)),
