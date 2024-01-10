@@ -3,6 +3,7 @@ Clustering = "aaaa29a8-35af-508c-8bc3-b662a17a0fe5"
 DataFrames = "a93c6f00-e57d-5684-b7b6-d8193f3e46c0"
 Genie = "c43c736e-a2d1-11e8-161f-af95117fbd1e"
 GenieFramework = "a59fdf5c-6bf0-4f5d-949c-a137c9e2f353"
+PlotlyBase = "a03496cd-edff-5a9b-9e67-9cda94a718b5"
 RDatasets = "ce6b1742-4840-55fa-b093-852dadbb1d8b"
 
 [compat]
