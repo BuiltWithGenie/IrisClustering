@@ -6,7 +6,7 @@ COPY Project.toml /home/genie/app/
 WORKDIR /home/genie/app
 RUN chown -R genie:genie /home/
 USER genie
-RUN julia -e "using Pkg; Pkg.activate(\".\"); Pkg.instantiate(); "
+RUN julia -e "using Pkg; Pkg.activate(\".\"); Pkg.instantiate();Pkg.precompile()"
 COPY . /home/genie/app
 EXPOSE 8000
 EXPOSE 80
