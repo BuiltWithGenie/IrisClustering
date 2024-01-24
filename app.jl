@@ -1,9 +1,8 @@
 using Clustering, PlotlyBase
 import RDatasets: dataset
 import DataFrames
-
 using GenieFramework
-@genietools
+#= @genietools =#
 
 const data = DataFrames.insertcols!(dataset("datasets", "iris"), :Cluster => zeros(Int, 150))
 const features = [:SepalLength, :SepalWidth, :PetalLength, :PetalWidth]
