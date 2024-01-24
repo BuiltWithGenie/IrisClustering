@@ -1,6 +1,6 @@
 name = "IrisClustering"
 imgname = "iris"
-version = "0.0.2"
+version = "0.0.3"
 
 [deps]
 Clustering = "aaaa29a8-35af-508c-8bc3-b662a17a0fe5"
