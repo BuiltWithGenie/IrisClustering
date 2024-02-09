@@ -1,5 +1,5 @@
 <header class="st-header q-pa-sm">
-    <h1 class="st-header__title text-h3">My Iris Dashboard</h1>
+    <h1 class="st-header__title text-h3">Iris Flower Classifier</h1>
 </header>
 <div class="row">
     <div class="st-col col-12 col-sm st-module">
@@ -12,11 +12,11 @@
     </div>
     <div class="st-col col-12 col-sm st-module">
         <p><b>X feature</b></p>
-        <q-select :model-value="features" v-model="xfeature" :options="features"></q-select>
+        <q-select :model-value="features" v-model="xfeature" :options="features" dense></q-select>
     </div>
     <div class="st-col col-12 col-sm st-module">
         <p><b>Y feature</b></p>
-        <q-select :model-value="features" :options="features" v-model="yfeature"></q-select>
+        <q-select :model-value="features" :options="features" v-model="yfeature" dense></q-select>
     </div>
 </div>
 <div class="row">
